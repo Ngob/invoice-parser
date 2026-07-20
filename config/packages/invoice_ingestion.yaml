@@ -1,0 +1,16 @@
+# Un client = une entree ici. Onboarder le client n°3 ne doit couter que ce
+# bloc et une fixture — aucune ligne de PHP. Si ce n'est plus vrai, le design
+# a echoue (critere §2 du plan).
+#
+# `format` nomme la strategie de decodage : 'fileExtension' la deduit du nom du
+# fichier, 'csv'/'json' la forcent. Absent => 'fileExtension'.
+invoice_ingestion:
+  clients:
+    acme:
+      format: fileExtension
+      delimiter: "\t"
+      fields: { amount: 0, currency: 1, name: 2, issuedAt: 3 }
+
+    globex:
+      format: fileExtension
+      fields: { amount: montant, currency: devise, name: nom, issuedAt: date }

@@ -17,9 +17,17 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
+            - '../src/Dto/'
             - '../src/Entity/'
+            - '../src/Enum/'
+            - '../src/Exception/'
             - '../src/Kernel.php'
 
     App\Command\:
         resource: '../src/Command'
         tags: ['console.command']
+
+    App\Config\IngestionProfilesConfig:
+        arguments:
+            $clients: '%invoice_ingestion.clients%'
+
