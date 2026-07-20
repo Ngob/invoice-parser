@@ -1,7 +1,7 @@
 services:
   app:
     build: .
-    image: php:8.2-fpm
+    image: invoice-parser-app
     container_name: symfony_app
     volumes:
       - .:/var/www/html
